@@ -3,7 +3,7 @@ import React from 'react'
 
 const ImageSection = () => {
   return (
-    <div className='px-28 md:pl-4 py-4 md:py-20 flex'>
+    <div className='px-10 md:px-28 md:pl-4 py-4 md:py-20 flex'>
       <div className=' h-80 w-full rounded-lg shadow-lg  flex justify-center'>
         
         <Image

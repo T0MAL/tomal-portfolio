@@ -2,8 +2,8 @@ import { MdOutlineCloudDownload } from "react-icons/md";
 
 const IntroSection = () => {
   return (
-    <div className='py-4 md:py-20 pl-28 flex flex-col'>
-      <p className='text-[#457B9D]'>
+    <div className='py-4 md:py-20 pl-10 md:pl-28 flex flex-col'>
+      <p className='text-[#457B9D] font-bold'>
         Hi Everyone, I am
       </p>
       <p className='text-4xl font-bold'>
