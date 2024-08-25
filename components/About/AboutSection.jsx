@@ -35,7 +35,7 @@ const AboutSection = async () => {
             collaborate with others to create impactful solutions. Whether its
             managing multiple tasks simultaneously or working as part of a team,
             I am committed to delivering top-quality work and pushing the
-            boundaries of what's possible in the tech world.
+            boundaries of whats possible in the tech world.
           </p>
         </div>
       </div>
