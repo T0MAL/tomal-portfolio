@@ -18,25 +18,25 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" sticky top-0 bg-primary-color w-screen border-b border-black">
-      <nav className="flex justify-between items-center w-full px-28 py-4">
+    <header className=" sticky top-0 z-50 bg-primary-color w-screen border-b border-black">
+      <nav className="flex justify-between items-center w-full px-10 md:px-28 py-4">
         <div className="font-bold">TOMAL</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-10">
-          <Link href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
+          <Link className="transform hover:-translate-y-0.5" href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
             Home
           </Link>
-          <Link href="#about" scroll={false} onClick={()=>scrollToSection("about")}>
+          <Link className="transform hover:-translate-y-0.5" href="#about" scroll={false} onClick={()=>scrollToSection("about")}>
             About
           </Link>
-          <Link href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
+          <Link className="transform hover:-translate-y-0.5" href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
             Skill
           </Link>
-          <Link href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
+          <Link className="transform hover:-translate-y-0.5" href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
             Project
           </Link>
-          <Link href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
+          <Link className="transform hover:-translate-y-0.5" href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
             Contact
           </Link>
         </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-gray-500 border-t border-black">
+        <div className="md:hidden bg-gray-50 border-t border-black">
           <div className="flex flex-col items-start gap-4 px-10 py-4">
           <Link href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
             Home
