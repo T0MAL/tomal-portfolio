@@ -20,7 +20,7 @@ const ContactSection = () => {
         </a>
         <div className="flex gap-4 items-center text-2xl">
           <a
-            href="www.linkedin.com/in/tahmidtomal"
+            href="https://www.linkedin.com/in/tahmidtomal/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#457B9D] hover:shadow-xl flex items-center"
