@@ -3,7 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-white border-t border-black shadow-2xl rounded-lg overflow-hidden">
+    <div className="bg-white border-t border-black shadow-2xl rounded-lg overflow-hidden hover:scale-101">
       <div className="">
         {
             project.imageLink==''? (
@@ -41,8 +41,10 @@ const ProjectCard = ({ project }) => {
             </span>
           ))}
         </div>
+        <div className="flex flex-col justify-between h-full">
         <p className="text-gray-700 mb-4">{project.description}</p>
         <div className="flex justify-between items-center">
+          {project.githubLink && (
           <a
             href={project.githubLink}
             target="_blank"
@@ -52,6 +54,7 @@ const ProjectCard = ({ project }) => {
             <FaGithub className="mr-2" />
             GitHub
           </a>
+          )}
           {project.deployedLink && (
             <a
               href={project.deployedLink}
@@ -63,6 +66,8 @@ const ProjectCard = ({ project }) => {
               Live Demo
             </a>
           )}
+        </div>
+        
         </div>
       </div>
     </div>

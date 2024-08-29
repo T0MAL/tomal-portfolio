@@ -15,7 +15,7 @@ export default {
         'primary-color': '#EBFEFF',
       },
       scale: {
-        '105': '1.05',
+        '101': '1.01',
       },
     },
   },

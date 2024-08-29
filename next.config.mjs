@@ -7,6 +7,11 @@ const nextConfig = {
             hostname: 'i.ibb.co',
             port: '',
           },
+          {
+            protocol: 'https',
+            hostname: 'voucher.sgp1.digitaloceanspaces.com',
+            port: '',
+          },
         ],
       },
 };
