@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-gray-50 border-t border-black">
+        <div className="md:hidden bg-white border-t border-black">
           <div className="flex flex-col items-start gap-4 px-10 py-4">
           <Link href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
             Home
