@@ -13,7 +13,7 @@ const IntroSection = () => {
         Currently doing my B.Sc in Computer Science and Engineering(CSE) form Bangladesh University of Engineering and Teachnology(BUET) and working as a part-time software developer at ICMsoft, a software farm in Bangladesh. 
       </p>
       <a
-        href="https://drive.google.com/uc?export=download&id=1MT5M92DUJKFFVBFHHfIGbYcgi1Ni7yjv"
+        href="https://drive.google.com/uc?export=download&id=1MsoXFZKvNXlVVy3UdKEOzvFbNiJUlX3V"
         target="_blank"
         rel="noopener noreferrer"
         className="w-fit mt-6 px-10 inline-block bg-[#457B9D] text-white py-2  rounded hover:shadow-2xl"

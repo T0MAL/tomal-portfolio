@@ -6,7 +6,7 @@ const ContactSection = () => {
   const phoneNumber = "+8801725599308";
   return (
     <section id="contact" className="bg-primary-color">
-      <div className="md:py-20 py-4 mx-10 md:mx-28 flex flex-col gap-4 items-start  ">
+      <div className="md:py-20 py-4 mx-10 md:mx-28 flex flex-col gap-4 items-start">
         <p className="text-left font-bold text-xl text-[#457B9D]">Contacts</p>
         <MailTo />
         <a
@@ -18,6 +18,12 @@ const ContactSection = () => {
             {phoneNumber}
           </div>
         </a>
+        <p className="text-gray-600 hover:text-black">
+          <span className="flex items-center">
+            {/* <span className="mr-2">📍</span> */}
+            Dhaka, Bangladesh
+          </span>
+        </p>
         <div className="flex gap-4 items-center text-2xl">
           <a
             href="https://www.linkedin.com/in/tahmidtomal/"
