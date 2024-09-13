@@ -31,13 +31,13 @@ const Navbar = () => {
             About
           </Link>
           <Link className="transform hover:-translate-y-0.5" href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
-            Skill
+            Skills
           </Link>
           <Link className="transform hover:-translate-y-0.5" href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
-            Project
+            Projects
           </Link>
           <Link className="transform hover:-translate-y-0.5" href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
-            Contact
+            Contacts
           </Link>
         </div>
 
@@ -60,13 +60,13 @@ const Navbar = () => {
             About
           </Link>
           <Link href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
-            Skill
+            Skills
           </Link>
           <Link href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
-            Project
+            Projects
           </Link>
           <Link href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
-            Contact
+            Contacts
           </Link>
           </div>
         </div>
