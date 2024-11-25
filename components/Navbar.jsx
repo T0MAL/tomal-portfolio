@@ -27,8 +27,8 @@ const Navbar = () => {
           <Link className="transform hover:-translate-y-0.5" href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
             Home
           </Link>
-          <Link className="transform hover:-translate-y-0.5" href="#about" scroll={false} onClick={()=>scrollToSection("about")}>
-            About
+          <Link className="transform hover:-translate-y-0.5" href="#experiences" scroll={false} onClick={()=>scrollToSection("experiences")}>
+            Experiences
           </Link>
           <Link className="transform hover:-translate-y-0.5" href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
             Skills
@@ -56,8 +56,8 @@ const Navbar = () => {
           <Link href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
             Home
           </Link>
-          <Link href="#about" scroll={false} onClick={()=>scrollToSection("about")}>
-            About
+          <Link href="#experiences" scroll={false} onClick={()=>scrollToSection("experiences")}>
+          Experiences
           </Link>
           <Link href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
             Skills

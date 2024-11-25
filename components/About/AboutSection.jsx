@@ -1,13 +1,15 @@
 import { connectToDB } from "@lib/mongodb";
 import Education from "@models/Education";
+import Experience from "./Experience";
 
 const AboutSection = async () => {
   await connectToDB();
   const educations = await Education.find({}).sort({createdAt: -1});
 
   return (
-    <section id="about" className="px-10 md:px-28 py-10 md:py-20 flex flex-col-reverse gap-4 md:flex-row">
-      <div className="flex-col md:w-1/2">
+    <section id="experiences" className="px-10 md:px-28 py-10 md:py-20 flex flex-col-reverse gap-4 md:flex-row">
+      <Experience/>
+      {/* <div className="flex-col md:w-1/2">
         <p className="text-2xl font-bold">About Me</p>
         <div className="w-full space-y-4 mt-4">
           <p>
@@ -38,7 +40,7 @@ const AboutSection = async () => {
             boundaries of whats possible in the tech world.
           </p>
         </div>
-      </div>
+      </div> */}
       <div className="flex-col md:w-1/2">
         <p className="text-2xl font-bold">Education</p>
         <div className="space-y-4 mt-4">

@@ -10,8 +10,7 @@ const IntroSection = () => {
         Md. Tahmid Islam Tomal
       </p>
       <p className='pt-2'>
-        Currently doing my B.Sc in Computer Science and Engineering(CSE) form Bangladesh University of Engineering and Teachnology(BUET) and working as a part-time software developer at ICMsoft, a software farm in Bangladesh. 
-      </p>
+      Currently pursuing a B.Sc in Computer Science and Engineering (CSE) from Bangladesh University of Engineering and Technology (BUET). Additionally, working at the well-known Panjeree Publications as part of the R&D team, building AI solutions, including developing applications leveraging Large Language Models (LLMs) to enhance their capabilities.      </p>
       <a
         href="https://drive.google.com/uc?export=download&id=1MsoXFZKvNXlVVy3UdKEOzvFbNiJUlX3V"
         target="_blank"
