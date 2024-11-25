@@ -1,3 +1,4 @@
+import Skills from './Skills'
 import SkillSlider from './SkillSlider'
 
 const SkillSection = () => {
@@ -7,7 +8,8 @@ const SkillSection = () => {
         Skills
         </p>
         <div>
-            <SkillSlider/>
+            {/* <SkillSlider/> */}
+            <Skills/>
         </div>
         
     </section>
