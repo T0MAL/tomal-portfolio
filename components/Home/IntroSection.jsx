@@ -10,21 +10,21 @@ const IntroSection = () => {
         Md. Tahmid Islam Tomal
       </p>
       <p className='pt-2'>
-      Currently pursuing a B.Sc in Computer Science and Engineering (CSE) from Bangladesh University of Engineering and Technology (BUET). Additionally, working at the well-known Panjeree Publications as part of the R&D team, building AI solutions, including developing applications leveraging Large Language Models (LLMs) to enhance their capabilities.      </p>
+        I am currently pursuing a B.Sc in Computer Science and Engineering at BUET, where I sharpen my skills in advanced technologies. I recently completed a 3-month part-time R&D role at the renowned Panjeree Publications, where I developed innovative AI solutions—including applications leveraging Large Language Models (LLMs) to drive intelligent automation.
+      </p>
       <a
-        href="https://drive.google.com/uc?export=download&id=165Cdigeb1fnvoEr1W6Qri6W9EO3QFYNh"
+        href="https://drive.google.com/uc?export=download&id=1MsoXFZKvNXlVVy3UdKEOzvFbNiJUlX3V"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-fit mt-6 px-10 inline-block bg-[#457B9D] text-white py-2  rounded hover:shadow-2xl"
+        className="w-fit mt-6 px-10 inline-block bg-[#457B9D] text-white py-2 rounded hover:shadow-2xl"
       >
         <div className="flex gap-2 items-center">
           <p>Download CV</p>
           <MdOutlineCloudDownload />
         </div>
-        
       </a>
     </div>
   )
 }
 
-export default IntroSection
+export default IntroSection;

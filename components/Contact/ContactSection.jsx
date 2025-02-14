@@ -25,14 +25,14 @@ const ContactSection = () => {
           </span>
         </p>
         <div className="flex gap-4 items-center text-2xl">
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/tahmidtomal/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#457B9D] hover:shadow-xl flex items-center"
           >
             <FaLinkedin />
-          </a>
+          </a> */}
 
           <a
             href="https://github.com/T0MAL"
@@ -43,7 +43,7 @@ const ContactSection = () => {
             <FaGithub />
           </a>
 
-          <a
+          {/* <a
             href="https://www.instagram.com/tahmid_tomal/"
             target="_blank"
             rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const ContactSection = () => {
             className="text-[#457B9D] hover:shadow-xl flex items-center"
           >
             <FaFacebook />
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
