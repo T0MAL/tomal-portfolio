@@ -1,30 +1,44 @@
-import { MdOutlineCloudDownload } from "react-icons/md";
+import { FiArrowDown, FiMail } from "react-icons/fi";
+import { profile } from "@data/portfolio";
 
-const IntroSection = () => {
+export default function IntroSection() {
   return (
-    <div className='py-4 md:py-20 pl-10 md:pl-28 flex flex-col'>
-      <p className='text-[#457B9D] font-bold'>
-        Hi Everyone, I am
+    <div className="hero-copy">
+      <p className="eyebrow">
+        <span className="status-dot" />
+        Computer vision & machine learning
       </p>
-      <p className='text-4xl font-bold'>
-        Md. Tahmid Islam Tomal
+      <h1 id="intro-heading">
+        Md. Tahmid
+        <br />
+        Islam <em>Tomal.</em>
+      </h1>
+      <p className="hero-role">
+        Machine Learning Engineer <span aria-hidden="true">/</span> BUET CSE
+        Graduate
       </p>
-      <p className='pt-2'>
-        I am currently pursuing a B.Sc in Computer Science and Engineering at BUET, where I sharpen my skills in advanced technologies. I recently completed a 3-month part-time R&D role at the renowned Panjeree Publications, where I developed innovative AI solutions—including applications leveraging Large Language Models (LLMs) to drive intelligent automation.
+      <p className="hero-description">
+        I study how visual models learn from limited data and adapt to new
+        classes. My research focuses on few-shot and incremental learning, with
+        broader interests in robotic perception and vision-language models.
       </p>
-      <a
-        href="https://drive.google.com/uc?export=download&id=1MsoXFZKvNXlVVy3UdKEOzvFbNiJUlX3V"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-fit mt-6 px-10 inline-block bg-[#457B9D] text-white py-2 rounded hover:shadow-2xl"
-      >
-        <div className="flex gap-2 items-center">
-          <p>Download CV</p>
-          <MdOutlineCloudDownload />
-        </div>
+      <p className="hero-description">
+        At Panjeree Publications, I build AI systems for Bengali education.
+        Working with real documents and student responses shapes the questions I
+        want to explore through doctoral research.
+      </p>
+      <div className="hero-actions">
+        <a className="button button-primary" href="#research">
+          Explore research <FiArrowDown aria-hidden="true" />
+        </a>
+        <a className="button button-secondary" href={profile.cv}>
+          Request CV <FiMail aria-hidden="true" />
+        </a>
+      </div>
+      <a className="hero-email" href={`mailto:${profile.email}`}>
+        <FiMail aria-hidden="true" />
+        {profile.email}
       </a>
     </div>
-  )
+  );
 }
-
-export default IntroSection;

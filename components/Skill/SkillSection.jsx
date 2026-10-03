@@ -1,20 +1,24 @@
-import Skills from './Skills'
-import SkillSlider from './SkillSlider'
+import { skills } from "@data/portfolio";
 
-const SkillSection = () => {
+export default function SkillSection() {
   return (
-    <section id="skill" className='md:py-20 py-4 bg-primary-color flex flex-col gap-4  md:gap-10'>
-        <p className='text-center font-bold text-xl text-[#457B9D] '>
-        Skills
-        </p>
-        <div>
-            {/* <SkillSlider/> */}
-            <Skills/>
-        </div>
-        
+    <section
+      id="skill"
+      className="container toolkit"
+      aria-labelledby="toolkit-heading"
+    >
+      <div>
+        <p className="eyebrow">The toolkit</p>
+        <h2 id="toolkit-heading">Tools I work with</h2>
+      </div>
+      <dl>
+        {skills.map((skill) => (
+          <div key={skill.label}>
+            <dt>{skill.label}</dt>
+            <dd>{skill.value}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
-  )
+  );
 }
-
-export default SkillSection
-

@@ -1,28 +1,30 @@
+import { experiences } from "@data/portfolio";
+import ExternalLink from "@components/ExternalLink";
 
-import { connectToDB } from "@lib/mongodb";
-import Experience from "@models/Experience";
-
-const ExperienceView = async () => {
-  await connectToDB();
-  const experiences = await Experience.find({}).sort({createdAt: -1});
+export default function Experience() {
   return (
-    <div className="flex-col md:w-1/2">
-      <p className="text-2xl font-bold">Experiences</p>
-      <div className="space-y-4 mt-4">
-        {experiences.map((exp) => (
-          <div key={exp._id} className="border p-4 rounded-md shadow-md">
-            <p className="text-lg font-semibold">{exp.company} | <span className="text-sm text-gray-700">{exp.role}</span></p>
-            <p className="text-md text-gray-700">{exp.timeline} | {exp.location}</p>
-            <ul className="list-disc pl-5 mt-2 text-sm text-gray-600">
-              {exp.details.map((detail, index) => (
-                <li key={index}>{detail}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+    <div className="experience-list">
+      {experiences.map((experience) => (
+        <article className="experience" key={experience.organization}>
+          <p className="date">{experience.period}</p>
+          <h3>{experience.role}</h3>
+          <p className="organization">{experience.organization}</p>
+          {experience.department && (
+            <p className="department">{experience.department}</p>
+          )}
+          <p className="experience-description">{experience.description}</p>
+          <ul>
+            {experience.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          {experience.link && (
+            <ExternalLink href={experience.link.href}>
+              {experience.link.label}
+            </ExternalLink>
+          )}
+        </article>
+      ))}
     </div>
   );
-};
-
-export default ExperienceView;
+}

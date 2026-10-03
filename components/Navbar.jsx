@@ -1,78 +1,79 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { FiAlignJustify } from "react-icons/fi";
-import { FiX } from "react-icons/fi";
+import { useEffect, useRef, useState } from "react";
+import { FiMail, FiMenu, FiX } from "react-icons/fi";
+import { profile } from "@data/portfolio";
 
-const Navbar = () => {
+const links = [
+  ["About", "home"],
+  ["Research", "research"],
+  ["Experience", "experiences"],
+  ["Projects", "project"],
+  ["Contact", "contact"],
+];
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef(null);
+  const headerRef = useRef(null);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: "smooth"});
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    if (!isOpen) return;
+    function closeOnEscape(event) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
+    function closeOnOutsideClick(event) {
+      if (!headerRef.current?.contains(event.target)) setIsOpen(false);
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+    };
+  }, [isOpen]);
 
   return (
-    <header className=" sticky top-0 z-50 bg-primary-color w-screen border-b border-black">
-      <nav className="flex justify-between items-center w-full px-10 md:px-28 py-4">
-        <div className="font-bold">TOMAL</div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-10">
-          <Link className="transform hover:-translate-y-0.5" href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
-            Home
-          </Link>
-          <Link className="transform hover:-translate-y-0.5" href="#experiences" scroll={false} onClick={()=>scrollToSection("experiences")}>
-            Experiences
-          </Link>
-          <Link className="transform hover:-translate-y-0.5" href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
-            Skills
-          </Link>
-          <Link className="transform hover:-translate-y-0.5" href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
-            Projects
-          </Link>
-          <Link className="transform hover:-translate-y-0.5" href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
-            Contacts
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={toggleDropdown} className="focus:outline-none">
-            {isOpen ? <FiX /> : <FiAlignJustify />}
-          </button>
+    <header className="site-header" ref={headerRef}>
+      <nav className="container nav-inner" aria-label="Main navigation">
+        <a href="#home" className="wordmark" onClick={() => setIsOpen(false)}>
+          <span className="monogram" aria-hidden="true">
+            t.
+          </span>
+          <span>Tahmid Islam Tomal</span>
+        </a>
+        <button
+          ref={buttonRef}
+          className="menu-toggle"
+          aria-expanded={isOpen}
+          aria-controls="navigation-links"
+          aria-label={isOpen ? "Close navigation" : "Open navigation"}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+        </button>
+        <div
+          id="navigation-links"
+          className={`nav-links ${isOpen ? "is-open" : ""}`}
+        >
+          {links.map(([label, id]) => (
+            <a key={id} href={`#${id}`} onClick={() => setIsOpen(false)}>
+              {label}
+            </a>
+          ))}
+          <a
+            className="nav-cv"
+            href={profile.cv}
+            onClick={() => setIsOpen(false)}
+          >
+            CV <FiMail aria-hidden="true" />
+            <span className="sr-only"> (request by email)</span>
+          </a>
         </div>
       </nav>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-black">
-          <div className="flex flex-col items-start gap-4 px-10 py-4">
-          <Link href="#home" scroll={false} onClick={()=>scrollToSection("home")}>
-            Home
-          </Link>
-          <Link href="#experiences" scroll={false} onClick={()=>scrollToSection("experiences")}>
-          Experiences
-          </Link>
-          <Link href="#skill" scroll={false} onClick={()=>scrollToSection("skill")}>
-            Skills
-          </Link>
-          <Link href="#project" scroll={false} onClick={()=>scrollToSection("project")}>
-            Projects
-          </Link>
-          <Link href="#contact" scroll={false} onClick={()=>scrollToSection("contact")}>
-            Contacts
-          </Link>
-          </div>
-        </div>
-      )}
     </header>
   );
-};
-
-export default Navbar;
+}
