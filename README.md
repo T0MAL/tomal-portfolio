@@ -4,6 +4,8 @@ A research-focused Next.js portfolio covering computer vision, few-shot and incr
 
 ## Run locally
 
+Use Node.js 24 (`nvm use` if you use nvm). The `engines.node` setting in `package.json` also selects Node.js 24 on Vercel, overriding an older project default.
+
 ```sh
 npm ci
 npm run dev
