@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tahmid Islam Tomal — Research portfolio
 
-## Getting Started
+A research-focused Next.js portfolio covering computer vision, few-shot and incremental learning, vision-language models, and applied ML engineering.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node.js 24 (`nvm use` if you use nvm). The `engines.node` setting in `package.json` also selects Node.js 24 on Vercel, overriding an older project default.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Validate with `npm run lint` and `npm run build`; serve the production build with `npm start`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The homepage is statically rendered from repository content and needs no database credentials. Existing MongoDB models and API routes are retained for compatibility; they are not used by the homepage.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Update the content
 
-## Learn More
+- `data/portfolio.js`: contact details, research manuscripts, experience, selected systems, and tools.
+- `components/Home/`: introduction, portrait, and PhD interests.
+- `components/Research/ResearchSection.jsx`: research layout and undergraduate thesis.
+- `components/About/AboutSection.jsx`: education.
+- `profile.cv` in `data/portfolio.js`: currently an email link to request the research CV. The attached PDF is not published in this public repository.
+- `styles/globals.css`: responsive design, keyboard focus, reduced motion, and print styles.
+- `app/layout.js`: search/social metadata and the existing Google Analytics integration.
 
-To learn more about Next.js, take a look at the following resources:
+Content was aligned to the October 2026 research CV. WACV 2027 manuscripts are explicitly **under review**, not accepted publications. Robotic perception is presented as an interest, not an existing robotics appointment. No PhD affiliation or author order is assumed. Update statuses and affiliations only after they are confirmed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+External manuscript links are the Google Drive folders supplied in the CV. Their access remains controlled by the owner’s Drive sharing settings.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Use the repository’s existing Next.js hosting workflow. This redesign does not change deployment providers or require new environment variables. If the legacy database APIs are still used separately, they continue to require `MONGODB_URI`.

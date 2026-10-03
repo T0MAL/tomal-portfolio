@@ -1,69 +1,47 @@
-import MailTo from "./MailTo";
-import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from "react-icons/fa6";
-import { FaPhone } from "react-icons/fa";
+import { FiArrowUp, FiArrowUpRight, FiMail } from "react-icons/fi";
+import { profile } from "@data/portfolio";
+import ExternalLink from "@components/ExternalLink";
 
-const ContactSection = () => {
-  const phoneNumber = "+8801725599308";
+export default function ContactSection() {
   return (
-    <section id="contact" className="bg-primary-color">
-      <div className="md:py-20 py-4 mx-10 md:mx-28 flex flex-col gap-4 items-start">
-        <p className="text-left font-bold text-xl text-[#457B9D]">Contacts</p>
-        <MailTo />
-        <a
-          href={`tel:${phoneNumber}`}
-          className="text-gray-600 hover:text-black"
-        >
-          <div className="flex items-center">
-            <FaPhone className="mr-2" />
-            {phoneNumber}
+    <>
+      <section
+        id="contact"
+        className="contact-section"
+        aria-labelledby="contact-heading"
+      >
+        <div className="container contact-inner">
+          <div>
+            <p className="eyebrow">04 / Get in touch</p>
+            <h2 id="contact-heading">Let’s talk research.</h2>
+            <p>
+              I welcome conversations about PhD opportunities and research
+              collaborations in computer vision, few-shot learning, and
+              multimodal AI.
+            </p>
+            <a className="contact-email" href={`mailto:${profile.email}`}>
+              {profile.email}
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
           </div>
-        </a>
-        <p className="text-gray-600 hover:text-black">
-          <span className="flex items-center">
-            {/* <span className="mr-2">📍</span> */}
-            Dhaka, Bangladesh
-          </span>
-        </p>
-        <div className="flex gap-4 items-center text-2xl">
-          {/* <a
-            href="https://www.linkedin.com/in/tahmidtomal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#457B9D] hover:shadow-xl flex items-center"
-          >
-            <FaLinkedin />
-          </a> */}
-
-          <a
-            href="https://github.com/T0MAL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#457B9D] hover:shadow-xl flex items-center"
-          >
-            <FaGithub />
-          </a>
-
-          {/* <a
-            href="https://www.instagram.com/tahmid_tomal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#457B9D] hover:shadow-xl flex items-center"
-          >
-            <FaInstagram />
-          </a>
-
-          <a
-            href="https://www.facebook.com/tahmidislam.tomal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#457B9D] hover:shadow-xl flex items-center"
-          >
-            <FaFacebook />
-          </a> */}
+          <div className="contact-links">
+            <a href={profile.cv}>
+              Request CV <FiMail aria-hidden="true" />
+            </a>
+            <ExternalLink href={profile.github}>GitHub</ExternalLink>
+            <ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>
+            <span>Dhaka, Bangladesh</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <footer className="container footer">
+        <p>
+          © {new Date().getFullYear()} {profile.name}
+        </p>
+        <a href="#home">
+          Back to top <FiArrowUp aria-hidden="true" />
+        </a>
+      </footer>
+    </>
   );
-};
-
-export default ContactSection;
+}

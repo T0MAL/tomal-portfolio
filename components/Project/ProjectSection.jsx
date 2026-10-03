@@ -1,20 +1,30 @@
-import { connectToDB } from "@lib/mongodb";
-import Project from "@models/Project";
-import ProjectCard from "./ProjectCard";
+import { projects } from "@data/portfolio";
+import ExternalLink from "@components/ExternalLink";
 
-const ProjectSection = async () => {
-  await connectToDB();
-  const projects = await Project.find({}).sort({ createdAt: -1 });
+export default function ProjectSection() {
   return (
-    <section id="project" className="md:py-20 py-4 mx-4 md:mx-28">
-      <p className="text-center font-bold text-xl text-[#457B9D] ">Projects</p>
-      <div className=" pt-4  md:pt-10 grid grid-cols-1  md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+    <section
+      id="project"
+      className="container section projects-section"
+      aria-labelledby="projects-heading"
+    >
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">03 / Selected systems</p>
+          <h2 id="projects-heading">From ideas to working systems.</h2>
+        </div>
+      </div>
+      <div className="project-grid">
+        {projects.map((project) => (
+          <article className="project-card" key={project.title}>
+            <p className="eyebrow">{project.type}</p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <p className="project-technologies">{project.technologies}</p>
+            <ExternalLink href={project.link}>{project.linkLabel}</ExternalLink>
+          </article>
         ))}
       </div>
     </section>
   );
-};
-
-export default ProjectSection;
+}

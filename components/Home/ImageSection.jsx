@@ -1,30 +1,38 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import { FiMapPin } from "react-icons/fi";
+import ExternalLink from "@components/ExternalLink";
+import { profile } from "@data/portfolio";
 
-const ImageSection = () => {
+export default function ImageSection() {
   return (
-    <div className='px-10 md:px-28 md:pl-4 py-2 md:py-20 flex'>
-      <div className=' h-80 w-full rounded-lg flex justify-center'>
-        
+    <aside className="profile-panel" aria-label="Profile">
+      <div className="portrait-frame">
         <Image
-      // src='https://i.ibb.co/c3yJPhv/DDI-282931-2-X2.jpg'
-      src='/DP.png'
-      alt='DP'
-      height={500}
-      width={400}
-      loading='lazy'
-      // className="rounded-full aspect-square object-cover"
-      />
-        
-        
-
+          src="/DP.png"
+          alt="Portrait of Md. Tahmid Islam Tomal"
+          width={400}
+          height={430}
+          sizes="(max-width: 600px) 190px, (max-width: 900px) 240px, 290px"
+          priority
+          className="portrait"
+        />
       </div>
-      
-      
-      
-
-    </div>
-  )
+      <div className="profile-caption">
+        <span>
+          <FiMapPin aria-hidden="true" />
+          Dhaka, Bangladesh
+        </span>
+        <span className="profile-links">
+          <ExternalLink href={profile.github}>GitHub</ExternalLink>
+          <ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>
+        </span>
+      </div>
+      <div className="phd-note">
+        <span className="eyebrow">Looking ahead</span>
+        <p>
+          Seeking PhD opportunities in computer vision and machine learning.
+        </p>
+      </div>
+    </aside>
+  );
 }
-
-export default ImageSection

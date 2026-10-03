@@ -1,20 +1,35 @@
-import React from 'react'
-import ImageSection from './ImageSection'
-import IntroSection from './IntroSection'
+import IntroSection from "./IntroSection";
+import ImageSection from "./ImageSection";
+import { researchInterests } from "@data/portfolio";
 
-const HomeSection = () => {
+export default function HomeSection() {
   return (
-    <section id="home" className="bg-primary-color">
-      <div className="flex flex-col-reverse md:flex-row">
-        <div className='w-full md:w-7/12'>
-            <IntroSection />
+    <section
+      id="home"
+      className="container hero"
+      aria-labelledby="intro-heading"
+    >
+      <div className="hero-grid">
+        <IntroSection />
+        <ImageSection />
+      </div>
+      <div className="interests" aria-labelledby="interests-heading">
+        <div className="interests-label">
+          <p className="eyebrow" id="interests-heading">
+            Research interests
+          </p>
+          <span aria-hidden="true">↘</span>
         </div>
-        <div className='w-full md:w-5/12'>
-            <ImageSection />
+        <div className="interest-grid">
+          {researchInterests.map((interest, index) => (
+            <article key={interest.title}>
+              <span className="index-number">0{index + 1}</span>
+              <h2>{interest.title}</h2>
+              <p>{interest.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-export default HomeSection

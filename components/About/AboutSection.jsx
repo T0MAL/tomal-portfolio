@@ -1,62 +1,46 @@
-import { connectToDB } from "@lib/mongodb";
-import Education from "@models/Education";
 import Experience from "./Experience";
 
-const AboutSection = async () => {
-  await connectToDB();
-  const educations = await Education.find({}).sort({createdAt: -1});
-
+export default function AboutSection() {
   return (
-    <section id="experiences" className="px-10 md:px-28 py-10 md:py-20 flex flex-col-reverse gap-4 md:flex-row">
-      <Experience/>
-      {/* <div className="flex-col md:w-1/2">
-        <p className="text-2xl font-bold">About Me</p>
-        <div className="w-full space-y-4 mt-4">
-          <p>
-            I am an undergraduate student of Computer Science and Engineering at
-            BUET, with a passion for solving complex problems and a drive to
-            achieve excellence in everything I do. My academic journey has
-            equipped me with a strong foundation in various languages like
-            Python, Java, and C++, while my hands-on experience includes working
-            with technologies like React, Next.js, and MongoDB for web
-            development.
-          </p>
-
-          <p>
-            I am particularly fascinated by the fields of AI and machine
-            learning. I am deeply committed to making a positive impact on
-            society and the environment, using my skills and knowledge to
-            contribute to meaningful and sustainable change.
-          </p>
-
-          <p>
-            I am always keen to develop myself, continuously learning and
-            adapting to new technologies to stay up-to-date in this
-            ever-evolving field. I thrive in environments where I can tackle
-            challenging tasks, optimize processes for efficiency, and
-            collaborate with others to create impactful solutions. Whether its
-            managing multiple tasks simultaneously or working as part of a team,
-            I am committed to delivering top-quality work and pushing the
-            boundaries of whats possible in the tech world.
-          </p>
+    <section
+      id="experiences"
+      className="container section"
+      aria-labelledby="experience-heading"
+    >
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">02 / Background</p>
+          <h2 id="experience-heading">Research meets practice.</h2>
         </div>
-      </div> */}
-      <div className="flex-col md:w-1/2">
-        <p className="text-2xl font-bold">Education</p>
-        <div className="space-y-4 mt-4">
-          {educations.map((e) => (
-            <div key={e._id} className="border p-4 rounded-md shadow-md">
-              <p className="text-lg font-semibold">{e.institution}</p>
-              <p className="text-md text-gray-700">{e.major}</p>
-              <p className="text-sm text-gray-500">{e.timeline}</p>
-              <p className="text-sm text-gray-600">GPA: {e.gpa}</p>
-              {e.description && <p className="text-sm mt-2">{e.description}</p>}
+      </div>
+      <div className="background-grid">
+        <Experience />
+        <aside className="education" aria-labelledby="education-heading">
+          <p className="eyebrow" id="education-heading">
+            Education
+          </p>
+          <div className="education-mark" aria-hidden="true">
+            BUET
+          </div>
+          <h3>Bangladesh University of Engineering and Technology</h3>
+          <p className="degree">B.Sc. in Computer Science and Engineering</p>
+          <p className="date">Feb 2020 — Mar 2025</p>
+          <dl>
+            <div>
+              <dt>CGPA</dt>
+              <dd>3.32 / 4.00</dd>
             </div>
-          ))}
-        </div>
+            <div>
+              <dt>Recognition</dt>
+              <dd>Dean’s List Award</dd>
+            </div>
+          </dl>
+          <p className="education-note">
+            A foundation in computing. A growing focus on visual learning and
+            perception.
+          </p>
+        </aside>
       </div>
     </section>
   );
-};
-
-export default AboutSection;
+}
